@@ -70,6 +70,7 @@ export default function Home() {
       {error && (
         <div
           role="alert"
+          data-testid="agent-error"
           className="mt-4 p-4 bg-red-50 border border-red-200 text-red-800 rounded max-w-md w-full text-sm"
         >
           {error}
@@ -77,7 +78,7 @@ export default function Home() {
       )}
 
       {reply && (
-        <div className="mt-4 p-4 bg-gray-100 rounded max-w-md w-full">
+        <div data-testid="agent-reply" className="mt-4 p-4 bg-gray-100 rounded max-w-md w-full">
           <strong>Agent:</strong>
           <ReactMarkdown>{reply}</ReactMarkdown>
         </div>
