@@ -1,8 +1,11 @@
 import axios from "axios";
 
-// Gemini 1.5 Flash was retired from the public generativeLanguage endpoint;
-// 2.0 Flash is the current generally-available model on the free tier.
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+// Model ids on this endpoint get retired. 1.5 Flash (the original default here)
+// and 2.0 Flash have both gone; 3.6 Flash is current. When the next one lapses,
+// Google says so in the error body, which the catch block below now surfaces
+// verbatim instead of flattening it into a 500 — that message is what identified
+// this one.
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
 
 // Accept either name. The Vercel project was configured with GOOGLE_API_KEY,
 // the Google docs call it GEMINI_API_KEY, and a mismatch between the two is

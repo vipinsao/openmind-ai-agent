@@ -30,8 +30,12 @@ Both sides now report what actually happened:
 - The client renders every one of these in an `alert` region, disables the
   button while a request is in flight, and shows `Thinking…`.
 
-The model default is `gemini-2.0-flash`. The previous default,
-`gemini-1.5-flash-latest`, has been retired from the public endpoint.
+The model default is `gemini-3.6-flash`. Both previous defaults —
+`gemini-1.5-flash-latest` and `gemini-2.0-flash` — have been retired from this
+endpoint. That retirement was the original fault: Google answered `404`, the
+route rewrote it to `500`, and the page showed nothing. The key had been valid
+the whole time. Passing the upstream message through is what identified it in
+one request.
 
 ## Running it
 
